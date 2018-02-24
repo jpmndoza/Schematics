@@ -20,7 +20,6 @@ public class Form_1 extends AppCompatActivity {
 
     TextView representante, empresa, producto, montoVenta, aftermarket, fechaDeCierre;
     EditText representanteInput, empresaInput, productoInput, montoVentaInput, aftermarketInput, fechaDeCierreInput;
-    ExcelFileGenerator excel = new ExcelFileGenerator();
     public static ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
 
 
@@ -51,7 +50,6 @@ public class Form_1 extends AppCompatActivity {
     public void sendMessage(View view) throws IOException {
         addToWorkBook();
         Intent intent = new Intent(this, ARD.class);
-        intent.putExtra("list", arrayLists);
         startActivity(intent);
     }
 
@@ -63,42 +61,42 @@ public class Form_1 extends AppCompatActivity {
 
             switch (i){
                 case 0:
-                        strArray = new ArrayList<>();
-                        strArray.add(representante.getText().toString());
-                        strArray.add(representanteInput.getText().toString());
-                        arrayLists.add(strArray);
-                        break;
+                    strArray = new ArrayList<>();
+                    strArray.add(representante.getText().toString());
+                    strArray.add(representanteInput.getText().toString());
+                    arrayLists.add(strArray);
+                    break;
                 case 1:
-                        strArray = new ArrayList<>();
-                        strArray.add(empresa.getText().toString());
-                        strArray.add(empresaInput.getText().toString());
-                        arrayLists.add(strArray);
-                        break;
+                    strArray = new ArrayList<>();
+                    strArray.add(empresa.getText().toString());
+                    strArray.add(empresaInput.getText().toString());
+                    arrayLists.add(strArray);
+                    break;
                 case 2:
-                        strArray = new ArrayList<>();
-                        strArray.add(producto.getText().toString());
-                        strArray.add(productoInput.getText().toString());
-                        arrayLists.add(strArray);
-                        break;
+                    strArray = new ArrayList<>();
+                    strArray.add(producto.getText().toString());
+                    strArray.add(productoInput.getText().toString());
+                    arrayLists.add(strArray);
+                    break;
                 case 3:
-                        strArray = new ArrayList<>();
-                        strArray.add(montoVenta.getText().toString());
-                        strArray.add(montoVentaInput.getText().toString());
-                        arrayLists.add(strArray);
-                        break;
+                    strArray = new ArrayList<>();
+                    strArray.add(montoVenta.getText().toString());
+                    strArray.add(montoVentaInput.getText().toString());
+                    arrayLists.add(strArray);
+                    break;
                 case 4:
-                        strArray = new ArrayList<>();
-                        strArray.add(aftermarket.getText().toString());
-                        strArray.add(aftermarketInput.getText().toString());
-                        arrayLists.add(strArray);
-                        break;
+                    strArray = new ArrayList<>();
+                    strArray.add(aftermarket.getText().toString());
+                    strArray.add(aftermarketInput.getText().toString());
+                    arrayLists.add(strArray);
+                    break;
 
                 case 5:
-                        strArray = new ArrayList<>();
-                        strArray.add(fechaDeCierre.getText().toString());
-                        strArray.add(fechaDeCierreInput.getText().toString());
-                        arrayLists.add(strArray);
-                        break;
+                    strArray = new ArrayList<>();
+                    strArray.add(fechaDeCierre.getText().toString());
+                    strArray.add(fechaDeCierreInput.getText().toString());
+                    arrayLists.add(strArray);
+                    break;
 
             }
         }

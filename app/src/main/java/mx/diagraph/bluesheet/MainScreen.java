@@ -21,5 +21,10 @@ public class MainScreen extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void testing(View view){
+        Intent intent = new Intent(this, Form_2.class);
+        startActivity(intent);
+    }
+
 
 }

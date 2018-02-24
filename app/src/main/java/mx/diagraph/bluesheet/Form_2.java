@@ -24,6 +24,7 @@ import java.util.ArrayList;
 public class Form_2 extends AppCompatActivity {
 
     ExcelFileGenerator excel = new ExcelFileGenerator();
+    public static ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
     Form_1 form_1;
 
     TextView calle, colonia, cp, ciudad,estado;
@@ -60,14 +61,15 @@ public class Form_2 extends AppCompatActivity {
     }
 
     public void sendMessage(View view) throws IOException {
-
-        Intent intent = new Intent(this, MainScreen.class);
-
+        addToWorkBook();
+        Intent intent = new Intent(this, Form_Three.class);
         startActivity(intent);
     }
 
+    /*
+
     public void sendMessage2(View view) throws IOException{
-        addToWorkBook();
+
         Workbook wb = excel.printExcel();
         OutputStream stream = openFileOutput("HojaAzul.xlsx", Context.MODE_PRIVATE);
 
@@ -89,11 +91,10 @@ public class Form_2 extends AppCompatActivity {
         startActivity(Intent.createChooser(emailIntent , "Send email..."));
 
     }
+    */
 
     private void addToWorkBook() {
         ArrayList<String> strArray;
-        ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
-
         for (int i = 1; i < 6 ; i++) {
 
             switch (i){

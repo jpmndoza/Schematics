@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="booleans">
+        <item> √ SÍ </item>
+        <item> x NO</item>
+    </string-array>
+</resources>

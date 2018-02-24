@@ -36,7 +36,11 @@ public class ExcelFileGenerator {
 
     public static ArrayList<ArrayList<String>> arrayList = new ArrayList<>();
     public static ArrayList<ArrayList<String>> arrayList2 = new ArrayList<>();
+    public static ArrayList<ArrayList<String>> arrayList3 = new ArrayList<>();
 
+    public void setArrayList3(ArrayList<ArrayList<String>> arrayList3) {
+        this.arrayList3 = arrayList3;
+    }
 
     public void setArrayList(ArrayList<ArrayList<String>> arrayList) {
         this.arrayList = arrayList;
@@ -59,7 +63,6 @@ public class ExcelFileGenerator {
 
         int rowCount = 1;
 
-        blueStyle();
 
         XSSFCellStyle blueStyle = workbook.createCellStyle();
         XSSFFont my_font= workbook.createFont();
@@ -101,7 +104,6 @@ public class ExcelFileGenerator {
         headerStyle.setFont(headerFont);
 
 
-
         for (ArrayList aBook : arrayList2) {
             int columnCount = 0;
             if(rowCount==1){
@@ -121,7 +123,6 @@ public class ExcelFileGenerator {
                 }
             }
         }
-
 
 
         int rowCount2 = 1;
@@ -145,17 +146,35 @@ public class ExcelFileGenerator {
             }
         }
 
+        rowCount2 = 1;
+        for (ArrayList aBook2: arrayList3) {
+            int columnCount2 = 4;
 
-        sheet.setColumnWidth(1,12000);
+            Row row = sheet.getRow(++rowCount2);
+            for (Object field : aBook2) {
+                Cell cell2 = row.createCell(++columnCount2);
+                cell2.setCellValue((String) field);
+                if(columnCount2==5){
+                    cell2.setCellStyle(blueStyle);
+                }else{
+                    cell2.setCellStyle(inputStyle);
+                }
+            }
+        }
+
+
+
+
+
+        sheet.setColumnWidth(1,13000);
         sheet.setColumnWidth(2, 8000);
         sheet.setColumnWidth(3,8000);
         sheet.setColumnWidth(4,8000);
+        sheet.setColumnWidth(5,13500);
+        sheet.setColumnWidth(6,5000);
+        sheet.setColumnWidth(7,5000);
 
         return workbook;
     }
-
-    private void blueStyle() {
-    }
-
 
 }
