@@ -38,7 +38,11 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <activity android:name=".Form_Three"></activity>
+        <activity android:name=".Form_Three" />
+        <activity android:name=".Form_4" />
+        <activity android:name=".Form_5" />
+        <activity android:name=".Form_6" />
+        <activity android:name=".Form_7"></activity>
     </application>
 
 </manifest>

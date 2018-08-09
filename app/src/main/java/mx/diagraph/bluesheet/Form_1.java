@@ -17,11 +17,9 @@ import java.util.ArrayList;
 
 public class Form_1 extends AppCompatActivity {
 
-
     TextView representante, empresa, producto, montoVenta, aftermarket, fechaDeCierre;
     EditText representanteInput, empresaInput, productoInput, montoVentaInput, aftermarketInput, fechaDeCierreInput;
     public static ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
-
 
 
     @Override

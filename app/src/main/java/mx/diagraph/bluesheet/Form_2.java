@@ -23,9 +23,8 @@ import java.util.ArrayList;
 
 public class Form_2 extends AppCompatActivity {
 
-    ExcelFileGenerator excel = new ExcelFileGenerator();
     public static ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
-    Form_1 form_1;
+
 
     TextView calle, colonia, cp, ciudad,estado;
     EditText calleInput, coloniaInput, cpInput, ciudadInput;
@@ -130,9 +129,5 @@ public class Form_2 extends AppCompatActivity {
                     break;
             }
         }
-
-        excel.setArrayList(arrayLists);
-        excel.setArrayList2(Form_1.arrayLists);
-
     }
 }

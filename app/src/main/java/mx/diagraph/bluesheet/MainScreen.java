@@ -22,7 +22,7 @@ public class MainScreen extends AppCompatActivity {
     }
 
     public void testing(View view){
-        Intent intent = new Intent(this, Form_2.class);
+        Intent intent = new Intent(this, Form_6.class);
         startActivity(intent);
     }
 

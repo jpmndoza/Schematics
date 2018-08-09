@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="velocidades">
+        <item>Fija</item>
+        <item>Intermitente</item>
+        <item>Variable</item>
+    </string-array>
+</resources>

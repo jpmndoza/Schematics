@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="controles">
+        <item>Arranque y paro</item>
+        <item>Velocidad fija</item>
+        <item>Velocidad variable</item>
+    </string-array>
+</resources>

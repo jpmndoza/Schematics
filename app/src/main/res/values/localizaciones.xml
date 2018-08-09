@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="localizacion">
+        <item>Superficie delantera</item>
+        <item>Superfice inferior"</item>
+        <item>Superficie lateral</item>
+        <item>Superficie posterior</item>
+        <item>Superficie superior</item>
+    </string-array>
+
+</resources>

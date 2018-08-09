@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="alimentacion">
+        <item>100 Volts (Sin origen de 220V)</item>
+        <item>220 Volts directos/dedicada</item>
+    </string-array>
+</resources>

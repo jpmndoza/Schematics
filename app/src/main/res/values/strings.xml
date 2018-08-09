@@ -12,4 +12,6 @@
     <string name="col_municipio">Col. Municipio</string>
     <string name="estado">Estado</string>
     <string name="ciudad">Ciudad</string>
+    <string name="m_dulo_de_producto_tipo_del_sustrato">Módulo de producto tipo del sustrato</string>
+    <string name="corugado_hoja">Corugado hoja</string>
 </resources>

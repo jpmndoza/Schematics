@@ -37,6 +37,12 @@ public class ExcelFileGenerator {
     public static ArrayList<ArrayList<String>> arrayList = new ArrayList<>();
     public static ArrayList<ArrayList<String>> arrayList2 = new ArrayList<>();
     public static ArrayList<ArrayList<String>> arrayList3 = new ArrayList<>();
+    public static ArrayList<ArrayList<String>> arrayList4 = new ArrayList<>();
+    public static ArrayList<ArrayList<String>> arrayList5 = new ArrayList<>();
+    public static ArrayList<ArrayList<String>> arrayList6 = new ArrayList<>();
+    public static ArrayList<ArrayList<String>> arrayList7 = new ArrayList<>();
+
+
 
     public void setArrayList3(ArrayList<ArrayList<String>> arrayList3) {
         this.arrayList3 = arrayList3;
@@ -48,6 +54,22 @@ public class ExcelFileGenerator {
 
     public void setArrayList2(ArrayList<ArrayList<String>> arrayList2) {
         this.arrayList2 = arrayList2;
+    }
+
+    public void setArrayList4(ArrayList<ArrayList<String>> arrayList4) {
+        this.arrayList4 = arrayList4;
+    }
+
+    public void setArrayList5(ArrayList<ArrayList<String>> arrayList5) {
+        this.arrayList5 = arrayList5;
+    }
+
+    public void setArrayList6(ArrayList<ArrayList<String>> arrayList6){
+        this.arrayList6 = arrayList6;
+    }
+
+    public void setArrayList7(ArrayList<ArrayList<String>> arrayList7) {
+        this.arrayList7 = arrayList7;
     }
 
     public XSSFWorkbook printExcel()throws IOException{
@@ -84,6 +106,27 @@ public class ExcelFileGenerator {
         blueStyle.setBorderTop(BorderStyle.THIN);
         blueStyle.setTopBorderColor(IndexedColors.WHITE.getIndex());
 
+        XSSFCellStyle greyStyle = workbook.createCellStyle();
+        XSSFFont grey_font= workbook.createFont();
+        XSSFColor color2 = new XSSFColor(Color.decode("#787878"));
+        grey_font.setBold(true);
+        grey_font.setFontHeight(15);
+        grey_font.setColor(new XSSFColor(Color.white));
+        greyStyle.setFont(grey_font);
+        greyStyle.setAlignment(HorizontalAlignment.LEFT);
+        greyStyle.setFillForegroundColor(color2);
+        greyStyle.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+
+        greyStyle.setBorderBottom(BorderStyle.THIN);
+        greyStyle.setBottomBorderColor(IndexedColors.WHITE.getIndex());
+        greyStyle.setBorderLeft(BorderStyle.THIN);
+        greyStyle.setLeftBorderColor(IndexedColors.WHITE.getIndex());
+        greyStyle.setBorderRight(BorderStyle.THIN);
+        greyStyle.setRightBorderColor(IndexedColors.WHITE.getIndex());
+        greyStyle.setBorderTop(BorderStyle.THIN);
+        greyStyle.setTopBorderColor(IndexedColors.WHITE.getIndex());
+
+
         XSSFCellStyle inputStyle = workbook.createCellStyle();
         XSSFFont inputFont = workbook.createFont();
         inputFont.setFontHeight(15);
@@ -99,7 +142,7 @@ public class ExcelFileGenerator {
 
         XSSFCellStyle headerStyle = workbook.createCellStyle();
         XSSFFont headerFont = workbook.createFont();
-        headerFont.setFontHeight(18);
+        headerFont.setFontHeight(20);
         headerFont.setBold(true);
         headerStyle.setFont(headerFont);
 
@@ -146,17 +189,131 @@ public class ExcelFileGenerator {
             }
         }
 
-        rowCount2 = 1;
+        rowCount = 9;
         for (ArrayList aBook2: arrayList3) {
-            int columnCount2 = 4;
-
-            Row row = sheet.getRow(++rowCount2);
+            int columnCount2 = 0;
+            Row row = sheet.createRow(++rowCount);
             for (Object field : aBook2) {
                 Cell cell2 = row.createCell(++columnCount2);
                 cell2.setCellValue((String) field);
-                if(columnCount2==5){
-                    cell2.setCellStyle(blueStyle);
+                if(columnCount2==1){
+                    cell2.setCellStyle(greyStyle);
                 }else{
+                    cell2.setCellStyle(inputStyle);
+                }
+            }
+        }
+
+
+        rowCount+=2;
+        for (ArrayList aBook2: arrayList4) {
+            int columnCount2 = 0;
+            if(rowCount==17){
+                Row header = sheet.createRow(rowCount);
+                Cell headerCell = header.createCell(1);
+                headerCell.setCellValue("Módulo de producto tipo del sustrato");
+                headerCell.setCellStyle(headerStyle);
+            }
+            Row row = sheet.createRow(++rowCount);
+            for (Object field : aBook2) {
+                Cell cell2 = row.createCell(++columnCount2);
+                cell2.setCellValue((String) field);
+                if(columnCount2 == 1 || columnCount2 == 3 || columnCount2 == 5 ){
+                    cell2.setCellStyle(greyStyle);
+                }else{
+                    cell2.setCellStyle(inputStyle);
+                }
+            }
+        }
+
+        rowCount+=2;
+        for (ArrayList aBook2: arrayList5) {
+            int columnCount2 = 0;
+            if(rowCount==22){
+                Row header = sheet.createRow(rowCount);
+                Cell headerCell = header.createCell(1);
+                headerCell.setCellValue("Forma de la superficie a identificar");
+                headerCell.setCellStyle(headerStyle);
+            }
+            if(rowCount==25){
+                Row header = sheet.createRow(rowCount);
+                Cell headerCell = header.createCell(1);
+                headerCell.setCellValue("Recubrimiento en el material");
+                headerCell.setCellStyle(headerStyle);
+            }
+
+            Row row = sheet.createRow(++rowCount);
+            for (Object field : aBook2) {
+                Cell cell2 = row.createCell(++columnCount2);
+                cell2.setCellValue((String) field);
+
+                if(columnCount2 == 1 || columnCount2 == 3 || columnCount2 == 5 ){
+                    cell2.setCellStyle(greyStyle);
+                }else{
+                    if(rowCount==30){
+                        cell2.setCellStyle(headerStyle);
+                    }
+                    cell2.setCellStyle(inputStyle);
+                }
+            }
+        }
+
+        rowCount+=2;
+        for (ArrayList aBook2: arrayList6) {
+            int columnCount2 = 0;
+            if(rowCount==35){
+                Row header = sheet.createRow(rowCount);
+                Cell headerCell = header.createCell(1);
+                headerCell.setCellValue("Manejo de materiales / Módulo de transporte");
+                headerCell.setCellStyle(headerStyle);
+            }
+            Row row = sheet.createRow(++rowCount);
+            for (Object field : aBook2) {
+                Cell cell2 = row.createCell(++columnCount2);
+                cell2.setCellValue((String) field);
+                if(columnCount2 == 1 || columnCount2 == 3 || columnCount2 == 5 ){
+                    cell2.setCellStyle(greyStyle);
+                }else{
+                    if(rowCount==30){
+                        cell2.setCellStyle(headerStyle);
+                    }
+                    cell2.setCellStyle(inputStyle);
+                }
+            }
+        }
+
+        rowCount+=2;
+        for (ArrayList aBook2: arrayList7) {
+            int columnCount2 = 0;
+            if(rowCount==41){
+                Row header = sheet.createRow(rowCount);
+                Cell headerCell = header.createCell(1);
+                headerCell.setCellValue("Tipo de transportador");
+                headerCell.setCellStyle(headerStyle);
+            }
+            if(rowCount == 44){
+                Row header = sheet.createRow(rowCount);
+                Cell headerCell = header.createCell(1);
+                headerCell.setCellValue(" ");
+                headerCell.setCellStyle(headerStyle);
+            }
+            if (rowCount == 46){
+                Row header = sheet.createRow(rowCount);
+                Cell headerCell = header.createCell(1);
+                headerCell.setCellValue(" ");
+                headerCell.setCellStyle(headerStyle);
+            }
+
+            Row row = sheet.createRow(++rowCount);
+            for (Object field : aBook2) {
+                Cell cell2 = row.createCell(++columnCount2);
+                cell2.setCellValue((String) field);
+                if(columnCount2 == 1 || columnCount2 == 3 || columnCount2 == 5 ){
+                    cell2.setCellStyle(greyStyle);
+                }else{
+                    if(rowCount==30){
+                        cell2.setCellStyle(headerStyle);
+                    }
                     cell2.setCellStyle(inputStyle);
                 }
             }
@@ -166,15 +323,17 @@ public class ExcelFileGenerator {
 
 
 
-        sheet.setColumnWidth(1,13000);
+
+        sheet.setColumnWidth(1,13500);
         sheet.setColumnWidth(2, 8000);
-        sheet.setColumnWidth(3,8000);
+        sheet.setColumnWidth(3,5000);
         sheet.setColumnWidth(4,8000);
-        sheet.setColumnWidth(5,13500);
+        sheet.setColumnWidth(5,5000);
         sheet.setColumnWidth(6,5000);
         sheet.setColumnWidth(7,5000);
 
         return workbook;
     }
+
 
 }

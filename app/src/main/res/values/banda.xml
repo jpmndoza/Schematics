@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="bandas">
+        <item>Vulcanizada</item>
+        <item>Unión con grapa</item>
+        <item>Sin uniones</item>
+    </string-array>
+</resources>

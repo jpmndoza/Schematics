@@ -25,7 +25,6 @@ public class Form_Three extends AppCompatActivity {
     TextView tempmin, tempmax, tempmin2, tempmax2, muestras, temps, temparea, humedad,
              tempsup, polvo, area;
     Spinner muestrasin, polvoin, areain;
-    ExcelFileGenerator excel = new ExcelFileGenerator();
 
     public static ArrayList<ArrayList<String>> arrayLists = new ArrayList<>();
 
@@ -33,6 +32,7 @@ public class Form_Three extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form__three);
+        getSupportActionBar().setTitle(" ");
         generateText();
         generateSpinner();
     }
@@ -70,28 +70,10 @@ public class Form_Three extends AppCompatActivity {
         areain.setAdapter(spinner_adapter);
     }
 
-    public void sendMessage2(View view) throws IOException {
+    public void sendMessage(View view){
         addToWorkBook();
-        Workbook wb = excel.printExcel();
-        OutputStream stream = openFileOutput("HojaAzul.xlsx", Context.MODE_PRIVATE);
-
-        try {
-            wb.write(stream);
-        } finally {
-            stream.close();
-        }
-
-        File filelocation = new File(getFilesDir().getAbsolutePath(), "HojaAzul.xlsx");
-        Uri photoURI = FileProvider.getUriForFile(getBaseContext(),getApplicationContext().getPackageName()+".my.package.name.provider", filelocation);
-
-        Intent emailIntent = new Intent(Intent.ACTION_SEND);
-        emailIntent .setType("vnd.android.cursor.dir/email");
-
-        emailIntent.putExtra(Intent.EXTRA_STREAM, photoURI);
-        emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Subject");
-        emailIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
-        startActivity(Intent.createChooser(emailIntent , "Enviar Hoja Azul por..."));
-
+        Intent intent = new Intent(this, Form_4.class);
+        startActivity(intent);
     }
 
     private void addToWorkBook() {
@@ -142,10 +124,6 @@ public class Form_Three extends AppCompatActivity {
 
             }
         }
-
-        excel.setArrayList(Form_2.arrayLists);
-        excel.setArrayList2(Form_1.arrayLists);
-        excel.setArrayList3(arrayLists);
 
     }
 }
